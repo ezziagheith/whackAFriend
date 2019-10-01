@@ -1,5 +1,8 @@
 # whackAFriend
 
+![](whack-a-friend.png)
+
+
 
 OBJECTIVE:
 
