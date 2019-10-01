@@ -1,6 +1,6 @@
 # whackAFriend
 
-![](whack-a-friend.png)
+![](./assets/images/whack-a-friend.png)
 
 
 
