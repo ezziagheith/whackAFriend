@@ -26,11 +26,43 @@ h2{
     font-size: 33px;
 }
 
+#round{
+    color: yellow;
+    font-family: 'Sancreek', cursive;
+    font-size: 33px;
+}
+
+#timer{
+    color: yellow;
+    font-family: 'Sancreek', cursive;
+    font-size: 33px;
+}
+/*
 h3{
     color: yellow;
     font-family: 'Sancreek', cursive;
     font-size: 33px;
 }
+
+h4{
+    color: yellow;
+    font-family: 'Sancreek', cursive;
+    font-size: 33px;
+}
+*/
+
+button {
+    background-color: yellow;
+    border: none;
+    color: green;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+}
+
 
 .first-holes{
     display: flex;
@@ -41,7 +73,7 @@ h3{
 }
 
 section img {
-    width: 150px;
+    width: 175px;
 }
 
 .second-holes{
@@ -61,5 +93,107 @@ section img {
    
 }
 
+.hole1{
+    position: relative;
+}
 
+.person1 {
+    position: absolute;
+    left: 0;
+    top: -40px;
+    padding: 12px;
+    height: 200px;
+    
+}
 
+.hole2{
+    position: relative;
+}
+
+.person2 {
+    position: absolute;
+    left: 0;
+    top: -40px;
+    padding: 12px;
+    height: 200px;
+}
+
+.hole3{
+    position: relative;
+}
+
+.person3{
+    position: absolute;
+    left: 0;
+    top: -40px;
+    padding: 12px;
+    height: 200px;
+}
+
+.hole4{
+    position: relative;
+}
+.person4{
+    position: absolute;
+    left: 0;
+    top: -40px;
+    padding: 12px;
+    height: 200px;
+}
+
+.hole5{
+    position: relative;
+}
+.person5{
+    position: absolute;
+    left: 0;
+    top: -40px;
+    padding: 12px;
+    height: 200px;
+}
+
+.hole6{
+    position: relative;
+}
+.person6{
+    position: absolute;
+    left: 0;
+    top: -50px;
+    padding: 12px;
+    height: 200px;
+}
+
+.hole7{
+    position: relative;
+}
+.person7{
+    position: absolute;
+    left: 0;
+    top: -40px;
+    padding: 12px;
+    height: 200px;
+}
+
+.hole8{
+    position: relative;
+}
+
+.person8{
+    position: absolute;
+    left: 0;
+    top: -45px;
+    padding: 16px;
+    height: 200px;
+}
+
+.hole9{
+    position: relative;
+}
+
+.person9{
+    position: absolute;
+    left: 0;
+    top: -50px;
+    padding: 16px;
+    height: 200px;
+}
