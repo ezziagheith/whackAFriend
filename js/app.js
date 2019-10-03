@@ -28,28 +28,40 @@ $("button").on("click", ()=>{
     $('.mole').hide();
     console.log("Start the game");
     setUpRound();
-    startGame();
+    moleFade();
   });
+/*
+  $("bothButtons").on("click", () => {
+
+  } */
 
 // Set timer and round
 
-  let time = 20;
-  let round = 1
+let time = 20;
+let round = 1;
+let moleInterval;
   
   
-  const setTimer = () => {
+const setTimer = () => {
     const timer = setInterval(()=>{
         console.log(time);
         time--;
         if(time === 0){
             clearInterval(timer);
+            $(`body`).append(`
+            <div class="roundAlert">
+                <h1>Round ${round +1}</h1>
+            </div>`);
+            setTimeout(() => {
+                $(`.roundAlert`).hide();
+            }, 1000);
             round++;
             
             setUpRound();
         } 
         updateTime();
         updateRound();
-  }, 1000)
+    }, 1000)
 }
 
 const updateTime = () => {
@@ -63,14 +75,17 @@ const updateTime = () => {
       if(round === 1){   
           fadeOutSpeed = 5000;
           time = 20;
+           
       } else if(round === 2){
           fadeOutSpeed = 3000;
-          time = 15;
+        time = 15;
       } else if(round === 3){
           fadeOutSpeed = 1000;
           time = 10;
       } else {
-          console.log('Game over');
+        $(`.mole`).fadeOut();
+        clearInterval(moleInterval);
+        console.log('Game over');
       }
   }
 
@@ -80,18 +95,24 @@ const updateTime = () => {
   }
 
 
-// Start game, have images randomly fade in and randomly fade out
+// Have images randomly fade in and randomly fade out
   
-const startGame = () => {
-   const moleInterval = setInterval(() => {
+const moleFade = () => {
+   moleInterval = setInterval(() => {
         const mole = $('.mole').eq(Math.floor(Math.random()* $('.mole').length))
+        const person = faces[Math.floor(Math.random() * faces.length)]
+        mole.attr('src',person.img)
+        mole.addClass(person.type)
         mole.fadeIn('slow', function(){
             setTimeout(() => {
                 mole.fadeOut();
+                mole.removeClass(person.type);
             }, Math.floor(Math.random()* fadeOutSpeed)); 
-    })
+    }) 
    }, 1000);
 }
+
+
 
 // Score will add points if click on student, score will minus points is click on instructor
 // class=student class=instructor
@@ -111,10 +132,19 @@ $(".mole").on("click", function(e) {
             $('h2').text(`Total Score: ${score}`);
         }
     }
+    $(this).siblings(`.logoImage`).toggle();
+    setTimeout( () => {
+        $(this).siblings(`.logoImage`).toggle()
+    }, 500);
 })
 
 
+// add image to every image == class name
+// style class ^^display: none
+// click event to click a mole, toggle that class off so image is no longer displayed none, .5 second retoggle class
 
+// random random random
 
-
+let faces = [{img:"../assets/images/Kenny.png", type: 'instructor'}, {img:"../assets/images/Lindsey.png", type: 'student'}, {img: "../assets/images/Carson.png", type: 'student'}, {img: "../assets/images/Ali.png", type: 'student'}, {img: "../assets/images/Dalton.png", type: 'instructor'}, {img: "../assets/images/Matt.png", type: 'instructor'}, 
+{img: "../assets/images/Hermin.png", type: 'student'},{img: "../assets/images/Brent.png", type: 'student'}, {img: "../assets/images/Jeff.png", type:'student'} ];
 
