@@ -56,17 +56,21 @@ const updateTime = () => {
     const $timer = $("#timer");
     $timer.text(`Timer: ${time}s`);
   }
+  let fadeOutSpeed = 5000;
 
   const setUpRound = () => {
       if(round < 4) {setTimer()};
-      if(round === 1){
+      if(round === 1){   
+          fadeOutSpeed = 5000;
           time = 20;
       } else if(round === 2){
+          fadeOutSpeed = 3000;
           time = 15;
       } else if(round === 3){
+          fadeOutSpeed = 1000;
           time = 10;
       } else {
-          console.log('game over')
+          console.log('Game over');
       }
   }
 
@@ -74,8 +78,6 @@ const updateTime = () => {
       const $round = $("#round");
       $round.text(`Round: ${round}`);
   }
-
-
 
 
 // Start game, have images randomly fade in and randomly fade out
@@ -86,7 +88,7 @@ const startGame = () => {
         mole.fadeIn('slow', function(){
             setTimeout(() => {
                 mole.fadeOut();
-            }, Math.floor(Math.random()* 5000)); 
+            }, Math.floor(Math.random()* fadeOutSpeed)); 
     })
    }, 1000);
 }
@@ -110,6 +112,8 @@ $(".mole").on("click", function(e) {
         }
     }
 })
+
+
 
 
 
