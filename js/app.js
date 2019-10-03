@@ -21,26 +21,96 @@
 // At the end of round 3, display score
 
 
+
+// Begin button to start the game and make images disappear
+
 $("button").on("click", ()=>{
     $('.mole').hide();
     console.log("Start the game");
-    setTimer();
+    setUpRound();
+    startGame();
   });
 
+// Set timer and round
+
   let time = 20;
+  let round = 1
+  
   
   const setTimer = () => {
-  const timer = setInterval(()=>{
-      console.log(time);
-      time--;
-      if(time === 0){
-          clearInterval(timer);
-      } updateTime();
+    const timer = setInterval(()=>{
+        console.log(time);
+        time--;
+        if(time === 0){
+            clearInterval(timer);
+            round++;
+            
+            setUpRound();
+        } 
+        updateTime();
+        updateRound();
   }, 1000)
 }
 
 const updateTime = () => {
     const $timer = $("#timer");
-    $timer.text(`timer: ${time}s`);
+    $timer.text(`Timer: ${time}s`);
   }
+
+  const setUpRound = () => {
+      if(round < 4) {setTimer()};
+      if(round === 1){
+          time = 20;
+      } else if(round === 2){
+          time = 15;
+      } else if(round === 3){
+          time = 10;
+      } else {
+          console.log('game over')
+      }
+  }
+
+  const updateRound = () => {
+      const $round = $("#round");
+      $round.text(`Round: ${round}`);
+  }
+
+
+
+
+// Start game, have images randomly fade in and randomly fade out
+  
+const startGame = () => {
+   const moleInterval = setInterval(() => {
+        const mole = $('.mole').eq(Math.floor(Math.random()* $('.mole').length))
+        mole.fadeIn('slow', function(){
+            setTimeout(() => {
+                mole.fadeOut();
+            }, Math.floor(Math.random()* 5000)); 
+    })
+   }, 1000);
+}
+
+// Score will add points if click on student, score will minus points is click on instructor
+// class=student class=instructor
+
+let score = 0;
+
+$(".mole").on("click", function(e) {
+    console.log(e)
+    for (let i = 0; i < e.target.classList.length; i++) {
+        if (e.target.classList[i] === "student") {
+            score ++;
+            console.log('hitStudent', score);
+            $('h2').text(`Total Score: ${score}`);
+        } else if (e.target.classList[i] === "instructor") {
+            score--;
+            console.log('hitInstructor', score);
+            $('h2').text(`Total Score: ${score}`);
+        }
+    }
+})
+
+
+
 

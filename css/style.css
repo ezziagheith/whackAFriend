@@ -9,6 +9,8 @@ body {
     background-image: url("../assets/images/grass.jpg");
     background-repeat: repeat;
     background-size: 100%;
+    height: 100vh;
+    width: 100vw;
 
 }
 
@@ -24,8 +26,12 @@ h2{
     color: yellow;
     font-family: 'Sancreek', cursive;
     font-size: 33px;
+    
 }
-
+.instructions{
+    display:flex;
+    justify-content: space-between;
+}
 #round{
     color: yellow;
     font-family: 'Sancreek', cursive;
@@ -37,19 +43,7 @@ h2{
     font-family: 'Sancreek', cursive;
     font-size: 33px;
 }
-/*
-h3{
-    color: yellow;
-    font-family: 'Sancreek', cursive;
-    font-size: 33px;
-}
 
-h4{
-    color: yellow;
-    font-family: 'Sancreek', cursive;
-    font-size: 33px;
-}
-*/
 
 #button {
     background-color: yellow;
@@ -61,6 +55,11 @@ h4{
     display: inline-block;
     font-size: 16px;
 
+}
+
+.logo{
+    display: flex;
+    justify-content: space-around;
 }
 
 
