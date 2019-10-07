@@ -24,16 +24,15 @@
 
 // Begin button to start the game and make images disappear
 
+
+
 $("button").on("click", ()=>{
     $('.mole').hide();
     console.log("Start the game");
     setUpRound();
     moleFade();
   });
-/*
-  $("bothButtons").on("click", () => {
 
-  } */
 
 // Set timer and round
 
@@ -48,16 +47,21 @@ const setTimer = () => {
         time--;
         if(time === 0){
             clearInterval(timer);
+            if (round < 4){
             $(`body`).append(`
             <div class="roundAlert">
                 <h1>Round ${round +1}</h1>
             </div>`);
             setTimeout(() => {
                 $(`.roundAlert`).hide();
-            }, 1000);
+            }, 1500);
             round++;
             
             setUpRound();
+            } else {
+                alert('GAME OVER!');
+            }
+            
         } 
         updateTime();
         updateRound();
@@ -148,3 +152,13 @@ $(".mole").on("click", function(e) {
 let faces = [{img:"../assets/images/Kenny.png", type: 'instructor'}, {img:"../assets/images/Lindsey.png", type: 'student'}, {img: "../assets/images/Carson.png", type: 'student'}, {img: "../assets/images/Ali.png", type: 'student'}, {img: "../assets/images/Dalton.png", type: 'instructor'}, {img: "../assets/images/Matt.png", type: 'instructor'}, 
 {img: "../assets/images/Hermin.png", type: 'student'},{img: "../assets/images/Brent.png", type: 'student'}, {img: "../assets/images/Jeff.png", type:'student'} ];
 
+/*
+document.getElementById("reset").onclick = function() {
+    $('.mole').hide();
+    console.log("Start the game");
+    setUpRound();
+    moleFade();
+  };
+  */
+
+  
