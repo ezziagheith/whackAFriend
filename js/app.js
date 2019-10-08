@@ -149,8 +149,8 @@ $(".mole").on("click", function(e) {
 
 // random random random
 
-let faces = [{img:"./assets/images/Kenny.png", type: 'instructor'}, {img:"./assets/images/Lindsey.png", type: 'student'}, {img: "./assets/images/Carson.png", type: 'student'}, {img: "./assets/images/Ali.png", type: 'student'}, {img: "./assets/images/Dalton.png", type: 'instructor'}, {img: "./assets/images/Matt.png", type: 'instructor'}, 
-{img: "./assets/images/Hermin.png", type: 'student'},{img: "./assets/images/Brent.png", type: 'student'}, {img: "./assets/images/Jeff.png", type:'student'} ];
+let faces = [{img:"../assets/images/Kenny.png", type: 'instructor'}, {img:"../assets/images/Lindsey.png", type: 'student'}, {img: "../assets/images/Carson.png", type: 'student'}, {img: "../assets/images/Ali.png", type: 'student'}, {img: "../assets/images/Dalton.png", type: 'instructor'}, {img: "../assets/images/Matt.png", type: 'instructor'}, 
+{img: "../assets/images/Hermin.png", type: 'student'},{img: "../assets/images/Brent.png", type: 'student'}, {img: "../assets/images/Jeff.png", type:'student'} ];
 
 /*
 document.getElementById("reset").onclick = function() {
